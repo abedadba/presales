@@ -1,0 +1,146 @@
+{
+  "version": "1.0.0",
+  "templates": [
+    {
+      "id": "lead-profile",
+      "title": "Lead Profile",
+      "file": "lead-profile.md",
+      "version": "1.0.0",
+      "category": "profile",
+      "description": "Full lead profile document with company overview, primary contact, qualification details and interaction history. Canonical template from PS-3.",
+      "placeholders": [
+        "annual_revenue",
+        "budget_amount",
+        "company_name",
+        "contact_email",
+        "contact_linkedin",
+        "contact_name",
+        "contact_phone",
+        "contact_title",
+        "employee_count",
+        "generated_date",
+        "industry",
+        "interaction_date",
+        "interaction_summary",
+        "interaction_type",
+        "lead_status",
+        "next_step",
+        "owner_name",
+        "pain_point_1",
+        "pain_point_2",
+        "target_timeline",
+        "website_url"
+      ]
+    },
+    {
+      "id": "outreach-email",
+      "title": "Outreach Email",
+      "file": "outreach-email.md",
+      "version": "1.0.0",
+      "category": "outreach",
+      "description": "Short first-touch outreach email focused on the lead's two pain points with a low-friction call to action.",
+      "placeholders": [
+        "company_name",
+        "contact_email",
+        "contact_name",
+        "contact_title",
+        "email_subject",
+        "industry",
+        "meeting_date",
+        "owner_name",
+        "pain_point_1",
+        "pain_point_2",
+        "website_url"
+      ]
+    },
+    {
+      "id": "soft-call-script",
+      "title": "Soft Call Script",
+      "file": "soft-call-script.md",
+      "version": "1.0.0",
+      "category": "call",
+      "description": "Discovery talk track for the initial soft call: opener, discovery questions, fit check, and close with next step.",
+      "placeholders": [
+        "company_name",
+        "contact_name",
+        "contact_title",
+        "industry",
+        "interaction_date",
+        "lead_status",
+        "meeting_date",
+        "next_step",
+        "owner_name",
+        "pain_point_1",
+        "pain_point_2"
+      ]
+    },
+    {
+      "id": "follow-up-email",
+      "title": "Follow-up Email",
+      "file": "follow-up-email.md",
+      "version": "1.0.0",
+      "category": "outreach",
+      "description": "Post-call summary email confirming what was discussed and the agreed next step.",
+      "placeholders": [
+        "company_name",
+        "contact_email",
+        "contact_name",
+        "generated_date",
+        "interaction_date",
+        "interaction_summary",
+        "lead_status",
+        "meeting_date",
+        "next_step",
+        "owner_name"
+      ]
+    },
+    {
+      "id": "proposal-summary",
+      "title": "Proposal Summary",
+      "file": "proposal-summary.md",
+      "version": "1.0.0",
+      "category": "proposal",
+      "description": "One-page proposal summary linking pain points to a focused first phase, budget, and timeline.",
+      "placeholders": [
+        "budget_amount",
+        "company_name",
+        "contact_name",
+        "contact_title",
+        "generated_date",
+        "next_step",
+        "owner_name",
+        "pain_point_1",
+        "pain_point_2",
+        "proposal_value",
+        "target_timeline"
+      ]
+    },
+    {
+      "id": "meeting-notes",
+      "title": "Meeting Notes",
+      "file": "meeting-notes.md",
+      "version": "1.0.0",
+      "category": "notes",
+      "description": "Structured meeting notes with summary, discussion points, and actions.",
+      "placeholders": [
+        "budget_amount",
+        "company_name",
+        "contact_email",
+        "contact_linkedin",
+        "contact_name",
+        "contact_phone",
+        "contact_title",
+        "generated_date",
+        "interaction_summary",
+        "lead_status",
+        "meeting_date",
+        "meeting_time",
+        "next_step",
+        "owner_name",
+        "pain_point_1",
+        "pain_point_2",
+        "target_timeline"
+      ]
+    }
+  ]
+}
