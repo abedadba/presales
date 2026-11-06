@@ -1,0 +1,42 @@
+{
+  "name": "presales-lead-call-generator",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "description": "Lead Call Generator MVP (PS-4) — Next.js app that renders PS-3 lead document templates from a validated form and downloads them locally as Markdown.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dompurify": "^3.2.4",
+    "marked": "^15.0.12",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.5",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^3.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.1.0",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.7.2",
+    "@types/dompurify": "^3.0.5",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "vitest": "^3.0.0"
+  }
+}
