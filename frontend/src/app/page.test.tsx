@@ -1,9 +1,13 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import HomePage from "./page";
 
 describe("Lead Call Generator page (PS-4)", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
   it("renders the form, template selector and preview", () => {
     render(<HomePage />);
 
@@ -50,5 +54,38 @@ describe("Lead Call Generator page (PS-4)", () => {
     await user.selectOptions(screen.getByTestId("template-select"), "soft-call-script");
 
     expect(screen.getByRole("heading", { level: 2, name: /soft call script/i })).toBeInTheDocument();
+  });
+
+  it("saves a named lead, loads it after clear, and deletes it", async () => {
+    const user = userEvent.setup();
+    render(<HomePage />);
+
+    // Saved leads panel is visible with empty state.
+    expect(screen.getByRole("heading", { name: /^saved leads$/i })).toBeInTheDocument();
+    expect(screen.getByTestId("saved-empty")).toBeInTheDocument();
+    expect(screen.getByTestId("save-lead-btn")).toBeDisabled();
+
+    await user.click(screen.getByRole("button", { name: /load example lead \(northwind\)/i }));
+    await user.type(screen.getByTestId("saved-lead-name"), "Northwind - Priya");
+    expect(screen.getByTestId("save-lead-btn")).toBeEnabled();
+    await user.click(screen.getByTestId("save-lead-btn"));
+
+    expect(screen.getByTestId("saved-status")).toHaveTextContent(/Saved lead/);
+    expect(screen.getByTestId("saved-count")).toHaveTextContent(/1 saved/);
+    expect(screen.getByTestId("saved-list")).toHaveTextContent("Northwind - Priya");
+
+    // Clear the form, then load the saved lead back.
+    await user.click(screen.getByRole("button", { name: /^clear$/i }));
+    expect((screen.getByLabelText(/company name/i) as HTMLInputElement).value).toBe("");
+
+    const list = screen.getByTestId("saved-list");
+    await user.click(within(list).getByRole("button", { name: /load saved lead/i }));
+    expect((screen.getByLabelText(/company name/i) as HTMLInputElement).value).toBe("Northwind Traders");
+    expect(screen.getByTestId("saved-status")).toHaveTextContent(/Loaded saved lead/);
+
+    // Delete it.
+    await user.click(within(screen.getByTestId("saved-list")).getByRole("button", { name: /delete saved lead/i }));
+    expect(screen.getByTestId("saved-status")).toHaveTextContent(/Deleted saved lead/);
+    expect(screen.getByTestId("saved-empty")).toBeInTheDocument();
   });
 });

@@ -4,10 +4,12 @@ import { useMemo, useState } from "react";
 import DocumentPreview from "@/components/DocumentPreview";
 import DownloadPanel from "@/components/DownloadPanel";
 import LeadForm from "@/components/LeadForm";
+import SavedLeadsPanel from "@/components/SavedLeadsPanel";
 import TemplateSelector from "@/components/TemplateSelector";
 import { EXAMPLE_LEADS } from "@/lib/exampleData";
 import { useToday } from "@/lib/hooks";
 import { DEFAULT_TEMPLATE_ID, getTemplate } from "@/lib/templates";
+import type { SavedLead } from "@/lib/savedLeads";
 
 /**
  * Lead Call Generator MVP (PS-4).
@@ -45,6 +47,12 @@ export default function HomePage() {
   function loadExample(lead: Record<string, string>) {
     setData({ ...lead });
     setTouched(new Set(Object.keys(lead)));
+  }
+
+  function loadSaved(lead: SavedLead) {
+    setData({ ...lead.data });
+    setTemplateId(lead.templateId || DEFAULT_TEMPLATE_ID);
+    setTouched(new Set(Object.keys(lead.data)));
   }
 
   function clearAll() {
@@ -87,6 +95,10 @@ export default function HomePage() {
           <DocumentPreview template={template} data={data} />
           <DownloadPanel template={template} data={data} />
         </div>
+      </div>
+
+      <div className="panel saved-leads-section">
+        <SavedLeadsPanel data={data} templateId={templateId} onLoad={loadSaved} filledCount={filledCount} />
       </div>
 
       <footer className="footer">
