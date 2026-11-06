@@ -1,0 +1,64 @@
+import type { LeadData } from "./render";
+
+/**
+ * Fictitious example leads mirrored from `data/leads.example.json`
+ * (PS-3 dataset). Kept in the frontend so "Load example" works offline
+ * with no network request. Keep in sync with the repo data file when it
+ * changes.
+ */
+export const EXAMPLE_LEADS: LeadData[] = [
+  {
+    company_name: "Northwind Traders",
+    lead_status: "new",
+    owner_name: "Abeda Begum",
+    industry: "Wholesale trading",
+    employee_count: "45",
+    annual_revenue: "$3.2M",
+    website_url: "https://example.com/northwind-traders",
+    contact_name: "Priya Nair",
+    contact_title: "Operations Manager",
+    contact_email: "priya.nair@example.invalid",
+    contact_phone: "+971-4-000-0001",
+    contact_linkedin: "https://www.linkedin.com/in/example-priya-nair",
+    pain_point_1: "Manual follow-up on quotes is slow and error-prone",
+    pain_point_2: "No single view of lead history across channels",
+    budget_amount: "$8,000",
+    target_timeline: "Q1 2027",
+    interaction_date: "2026-11-07",
+    interaction_type: "soft call",
+    interaction_summary: "Priya confirmed quotes take days to chase and history is scattered across email and spreadsheets.",
+    next_step: "Send one-page summary and book a 30-minute demo",
+    generated_date: "2026-11-06",
+    email_subject: "Quick idea for Northwind Traders",
+    meeting_date: "2026-11-12",
+    meeting_time: "10:00 GST",
+    proposal_value: "$7,500 first phase",
+  },
+  {
+    company_name: "Delta Logistics",
+    lead_status: "qualified",
+    owner_name: "Abeda Begum",
+    industry: "Freight and logistics",
+    employee_count: "120",
+    annual_revenue: "$14.5M",
+    website_url: "https://example.com/delta-logistics",
+    contact_name: "Omar Haddad",
+    contact_title: "Head of Sales",
+    contact_email: "omar.haddad@example.invalid",
+    contact_phone: "+971-4-000-0002",
+    contact_linkedin: "https://www.linkedin.com/in/example-omar-haddad",
+    pain_point_1: "Duplicate data entry between quote tool and CRM",
+    pain_point_2: "Slow handover from sales to operations",
+    budget_amount: "$18,000",
+    target_timeline: "Q2 2027",
+    interaction_date: "2026-11-08",
+    interaction_type: "meeting",
+    interaction_summary: "Omar wants a shared lead record so sales and ops see the same status and next steps.",
+    next_step: "Share proposal for first-phase integration",
+    generated_date: "2026-11-06",
+    email_subject: "Next step for Delta Logistics",
+    meeting_date: "2026-11-14",
+    meeting_time: "14:00 GST",
+    proposal_value: "$16,500 first phase",
+  },
+];
