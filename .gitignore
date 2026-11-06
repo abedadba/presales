@@ -1,0 +1,83 @@
+# General
+.env
+.env.*
+!.env.example
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+# IDE / editors
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+ENV/
+env/
+.uv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+*.sqlite
+*.sqlite3
+*.db
+
+# FastAPI / backend
+instance/
+webassets-cache/
+.scrapy
+docs/_build/
+.python-version
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.bun/
+**/*.tsbuildinfo
+.eslintcache
+.turbo/
+
+# Next.js
+.next/
+out/
+dist-*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vercel
+# vercel env pull
+.vercel/
+.vercel-project.json
+
+# Build / test artifacts
+coverage/
+.nyc_output/
+tmp/
+temp/
+*.tmp
+*.bak
+*~
