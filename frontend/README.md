@@ -10,7 +10,11 @@ Workflow for a sales executive:
    Lead Profile, Outreach Email, Soft Call Script, Follow-up Email,
    Proposal Summary, Meeting Notes) and watch the document render live
    as you type.
-3. **Local export** — download the final document as Markdown (`.md`)
+3. **Save leads (browser-local)** — name the current form and save it in
+   `localStorage`, then reload, load, overwrite or delete it from the
+   Saved Leads list. (Keys are per-browser; drafts can be saved even
+   before the form is valid for export.)
+4. **Local export** — download the final document as Markdown (`.md`)
    directly to the local machine. No cloud storage, no network upload.
    Use the browser **Print / Save as PDF** path for a PDF copy.
 
@@ -52,13 +56,14 @@ npm test         # Vitest (render + validation + download + page + template-sync
 frontend/
   src/
     app/            # Next.js App Router: layout.tsx, page.tsx, globals.css
-    components/     # LeadForm, TemplateSelector, DocumentPreview, DownloadPanel
+    components/     # LeadForm, TemplateSelector, DocumentPreview, DownloadPanel, SavedLeadsPanel
     lib/
       fields.ts     # 25 canonical placeholders, types, groups, help text
       templates.ts  # GENERATED — bundled PS-3 templates (see below)
       render.ts     # {{placeholder}} engine (port of src/presales_templates/store.py)
       validation.ts # format + missing-field validation
       download.ts   # filename builder + browser Blob download
+      savedLeads.ts # localStorage save/load/delete for named leads
       exampleData.ts# fictitious examples mirrored from data/leads.example.json
     test/setup.ts
   scripts/sync-templates.mjs
@@ -82,8 +87,12 @@ placeholder syntax and the same rendering semantics (`strict` vs. preview).
 
 - Example leads are fictitious (`@example.invalid`, `.invalid` sites) and
   mirror `data/leads.example.json`.
-- There is no backend and no persistence: form state lives in React only.
-  Closing the tab discards it. Reloading does not restore it.
+- There is no backend. The in-progress form lives in React only, but
+  **named saved leads** persist in the browser's `localStorage`
+  (`presales.ps4.savedLeads.v1`) via `src/lib/savedLeads.ts` — they survive
+  reloads on the same device/browser, and never leave it. Saving with an
+  existing name overwrites that entry; invalid/draft forms can be saved
+  (export still requires full validity).
 - Downloads are generated entirely on the client.
 
 ## Validation rules (summary)

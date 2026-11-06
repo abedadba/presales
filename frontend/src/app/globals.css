@@ -385,6 +385,98 @@ body {
   font-size: 0.875rem;
 }
 
+.saved-leads-section {
+  margin-top: 1.25rem;
+}
+
+.saved-panel {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.saved-panel h2 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.saved-note {
+  margin: 0;
+}
+
+.saved-form {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 560px;
+}
+
+.saved-form label {
+  font-weight: 700;
+}
+
+.saved-form input {
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.625rem;
+  font: inherit;
+  background: #fff;
+  width: 100%;
+}
+
+.saved-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.saved-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.saved-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: #fff;
+}
+
+.saved-meta {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.saved-date {
+  font-size: 0.8125rem;
+}
+
+.saved-item-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.btn.danger {
+  color: var(--danger);
+  border-color: #fecaca;
+}
+
+.btn.danger:hover:not(:disabled) {
+  border-color: var(--danger);
+}
+
+.saved-status {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
 .footer code {
   background: #f1f5f9;
   padding: 0.1rem 0.35rem;
@@ -397,7 +489,8 @@ body {
   .template-selector,
   .preview-actions,
   .skip-link,
-  .form {
+  .form,
+  .saved-leads-section {
     display: none !important;
   }
 
